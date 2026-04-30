@@ -3,9 +3,41 @@
 <img width="1916" height="821" alt="bcbc-cheat-sheet-both-solder-header" src="https://github.com/user-attachments/assets/4963090b-0cf1-4fb2-80b1-4b7334b19ed0" />
 
 
-This is a local-first static cheat-sheet module.
+# BCBC Linux Administrator Cheat Sheet Site
 
-## Easiest use
+A technician-first Linux admin cheat sheet site built for beginners, self-learners, and working support technicians who need fast access to useful commands without digging through scattered notes, old bookmarks, or bloated documentation.
+
+This project focuses on clean command packs, searchable workflows, and simple flat-file import/export so useful knowledge can be shared, expanded, and reused without locking everything into a heavy platform. The goal is to make Linux learning and day-to-day troubleshooting more approachable while still being practical enough for real technician work.
+
+## What it does
+
+- Organizes Linux commands into searchable packs
+- Supports flat-file import and export for easy sharing
+- Lets users build and extend their own command libraries
+- Keeps the interface simple, fast, and beginner-friendly
+- Helps turn useful commands into reusable learning material
+
+## Current features
+
+- Search across all packs
+- Per-pack filtering
+- Tag filtering
+- Copy-ready command cards
+- Flat-file pack preview
+- Import and append support for pack files
+- Export tools for sharing and reuse
+
+## Why this exists
+
+A lot of Linux help is either too advanced, too scattered, or too poorly organized for people who are still learning or for technicians who need quick answers under pressure. This project is meant to bridge that gap with a cleaner, more modular approach that is easy to understand, easy to expand, and useful in the real world.
+
+## Project direction
+
+This site is part of a broader BCBC technician tools and learning system focused on practical support tools, guided learning, AI-assisted workflows, and beginner-friendly technical education.
+
+## Status
+
+Active working prototype with live search, pack management, and ongoing usability improvements.
 
 1. Extract the zip file.
 2. Open `index.html` in a web browser.
