@@ -1,0 +1,3 @@
+PACK|example-custom|Example Custom Pack|A tiny example showing the flat-file format for shared contributed packs.|1.0
+ITEM|Say hello|echo "hello from BCBC"|Prints a simple test message.|Safe test command.|example,safe
+ITEM|Show date|date|Shows the current system date and time.|Useful when checking logs and timestamps.|example,time,safe
