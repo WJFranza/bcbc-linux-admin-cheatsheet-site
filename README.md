@@ -87,8 +87,8 @@ Blank lines and lines starting with `#` are ignored.
 ## Credits
 
 BCBC Technician Tools and Learning System.
-Ideas, design, and concepts by William J Franza with assistance from ChatGPT.
-AI-related collaboration credit: Mikey_LikesIT and ChatGPT.
+Ideas, design, and concepts by William James Franza with assistance from ChatGPT.
+AI-related collaboration credit: Mikey_LikesIT (William J. F.) and ChatGPT.
 No OpenAI endorsement is implied.
 
 
