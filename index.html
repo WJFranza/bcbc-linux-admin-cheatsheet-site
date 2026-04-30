@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BCBC Technician Tools and Learning System — Modular Cheat Sheets</title>
+  <meta name="description" content="Standalone modular flat-file cheat sheets for technicians and Linux administrators.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__matrix" aria-hidden="true"></div>
+      <div class="hero__logo-panel">
+        <img class="hero__shield-logo" src="assets/bcbc-logo.png" alt="BCBC shield logo" onerror="this.parentElement.style.display='none'">
+      </div>
+      <div class="hero__content">
+        <div class="hero__banner-wrap">
+          <img class="hero__banner" src="assets/bcbc-header.png" alt="BCBC Linux Administrator Cheat Sheets banner" onerror="this.parentElement.style.display='none'">
+        </div>
+        <p class="eyebrow">BCBC Technician Tools and Learning System</p>
+        <h1>Linux Administrator Cheat Sheets</h1>
+        <p class="hero__lead">
+          Standalone, flat-file command packs for technicians who need safe commands, clear explanations,
+          and fast drill-down pages. Modular by design: import or export flat-file packs, organize topics into separate pages,
+          and run everything locally by opening <strong>index.html</strong>. No web server required.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#packs">Open packs</a>
+          <a class="button" href="#importer">Import / export</a>
+          <a class="button button--ghost" href="#ai-helper">Optional AI helper</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel notice">
+        <div>
+          <p class="eyebrow">Local-first design</p>
+          <h2>Runs from a hard drive, USB stick, or Apache</h2>
+          <p>
+            This page has built-in starter packs, so it works even when opened directly from your filesystem.
+            Add your own packs by pasting text, loading a file, or copying files into <code>data/packs</code> for organization.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel intro-grid">
+        <article>
+          <h2>Modular packs</h2>
+          <p>Each pack is a small text file. The first record names the page. Each following record creates a command card.</p>
+        </article>
+        <article>
+          <h2>Fast drill-down</h2>
+          <p>Keep drives, terminal basics, grep/search, networking, rescue work, Docker, and future topics separate.</p>
+        </article>
+        <article>
+          <h2>Shareable</h2>
+          <p>Export a pack, email it, review it, improve it, and import it back. No database required.</p>
+        </article>
+      </section>
+
+      <section id="packs" class="workspace">
+        <aside class="sidebar panel">
+          <div class="sidebar__title-row">
+            <h2>Packs</h2>
+            <div class="sidebar__tools">
+              <button id="exportAllPacksBtn" class="small-button" type="button">Export all</button>
+            </div>
+          </div>
+          <div id="packList" class="pack-list" aria-label="Command packs"></div>
+
+          <div class="mini-panel local-tools">
+            <h3>Pack tools</h3>
+            <button id="checkPacksBtn" class="small-button" type="button">Check packs</button>
+            <label for="localPackSelect">Delete local imported/modified pack</label>
+            <select id="localPackSelect">
+              <option value="">No local packs found</option>
+            </select>
+            <button id="deleteLocalPackBtn" class="small-button small-button--danger" type="button">Delete selected local pack</button>
+            <p class="tool-note">Deleting a local override restores the built-in pack if one exists. Use Export all before cleanup.</p>
+          </div>
+
+          <div class="mini-panel">
+            <h3>Filter</h3>
+            <label for="searchInput">Search commands, notes, tags</label>
+            <input id="searchInput" type="search" placeholder="Example: lsblk, grep, mounted, safety">
+            <label for="tagFilter">Tag</label>
+            <select id="tagFilter">
+              <option value="">All tags</option>
+            </select>
+          </div>
+        </aside>
+
+        <section class="content panel">
+          <div class="pack-header">
+            <div>
+              <p id="packType" class="eyebrow">Command pack</p>
+              <h2 id="packTitle">Loading…</h2>
+              <p id="packDescription"></p>
+            </div>
+            <div class="pack-actions">
+              <button id="copyPackBtn" class="small-button" type="button">Copy flat file</button>
+              <button id="downloadPackBtn" class="small-button" type="button">Download pack</button>
+              <button id="printPackBtn" class="small-button" type="button">Print</button>
+            </div>
+          </div>
+          <div id="commandCards" class="cards" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section id="importer" class="panel importer">
+        <div>
+          <p class="eyebrow">Flat-file import / export</p>
+          <h2>Current pack flat-file preview</h2>
+          <p>
+            This preview follows the pack you select above. Copy it, edit it, share it, or use it as a template
+            for creating new packs. Blank lines and lines starting with <code>#</code> are ignored.
+          </p>
+          <pre class="format-box"><code id="currentPackPreview"></code></pre>
+          <div class="preview-actions">
+            <button id="exportPreviewPackBtn" class="button button--primary" type="button">Export current pack</button>
+            <button id="copyPreviewPackBtn" class="button" type="button">Copy pack text</button>
+            <button id="emailPreviewPackBtn" class="button button--ghost" type="button">Share by email</button>
+          </div>
+          <p class="helper-note">
+            Export saves the current pack as a <code>.bcbc</code> flat-file. Use <strong>Export all</strong>
+            in the Packs panel to back up every visible pack into one file. Imported and modified packs are stored only in this browser,
+            so export before switching browsers, clearing browser data, or sharing your work. For email sharing, export the file and attach it,
+            or use “Share by email” to open a message with the current pack text included.
+          </p>
+        </div>
+
+        <div class="import-box">
+          <label for="importText">Import text</label>
+          <textarea id="importText" spellcheck="false" placeholder="Paste a full PACK|... block, or paste loose ITEM|... lines to append to the selected pack..."></textarea>
+          <div class="import-actions">
+            <input id="fileInput" type="file" accept=".txt,.bcbc,.csv,.psv,text/plain">
+            <button id="importBtn" class="button button--primary" type="button">Import / replace pack</button>
+            <button id="appendItemsBtn" class="button" type="button">Append items to selected pack</button>
+          </div>
+          <p id="importStatus" class="status"></p>
+          <p class="helper-note">
+            Full blocks that start with <code>PACK|</code> import or replace a pack. Loose lines that start with
+            <code>ITEM|</code> can be appended to the currently selected pack. Duplicate title/command pairs are skipped.
+          </p>
+        </div>
+      </section>
+
+      <section id="ai-helper" class="panel ai-panel">
+        <div>
+          <p class="eyebrow">Optional, separate layer</p>
+          <h2>AI helper hook</h2>
+          <p>
+            The cheat sheets stand on their own. The AI helper is just a bonus link or future integration point.
+            That keeps the learning material useful offline, printable, and safe.
+          </p>
+        </div>
+        <div class="ai-card">
+          <h3>Suggested helper prompt</h3>
+          <p>
+            “Explain this command, ask what machine I am on, remind me to identify disks by model/serial,
+            and do not suggest destructive commands until I confirm the target device.”
+          </p>
+          <a class="button button--ghost" target="_blank" rel="noopener" href="https://chat.openai.com/">Open ChatGPT helper</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="bottom-graphic">
+      <img src="assets/bcbc-footer.png" alt="BCBC footer graphic" onerror="this.parentElement.style.display='none'">
+    </div>
+
+    <footer class="footer">
+      <p>
+        BCBC Technician Tools and Learning System. Ideas, design, and concepts by William J Franza with assistance from ChatGPT.
+        AI-related collaboration credit: Mikey_LikesIT and ChatGPT. No OpenAI endorsement is implied.
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
