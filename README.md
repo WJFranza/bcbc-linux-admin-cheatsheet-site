@@ -171,3 +171,6 @@ Changes:
 - `Export all` is the safe full-backup method.
 - `Delete selected local pack` is the normal cleanup method.
 - Imported/modified packs are browser-local; export before switching browsers or clearing browser data.
+
+- <img width="2172" height="724" alt="bcbc-linux-cheatsheet-technician-tools-killer-top" src="https://github.com/user-attachments/assets/2541db07-6325-449b-bbb4-ea19fc4f9649" />
+
