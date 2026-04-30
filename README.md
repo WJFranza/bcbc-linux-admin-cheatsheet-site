@@ -1,5 +1,8 @@
 # BCBC Technician Tools and Learning System — Standalone Modular Cheat Sheets
 
+<img width="1916" height="821" alt="bcbc-cheat-sheet-both-solder-header" src="https://github.com/user-attachments/assets/4963090b-0cf1-4fb2-80b1-4b7334b19ed0" />
+
+
 This is a local-first static cheat-sheet module.
 
 ## Easiest use
