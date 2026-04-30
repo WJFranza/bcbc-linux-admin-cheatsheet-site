@@ -204,6 +204,10 @@ Changes:
 - `Delete selected local pack` is the normal cleanup method.
 - Imported/modified packs are browser-local; export before switching browsers or clearing browser data.
 
+- ## Sharing command packs
+
+If you create a useful pack and want to share it, open a GitHub Issue and attach your exported `.bcbc` file, or paste the flat-file pack text into the issue body. Clean, beginner-friendly, and technician-useful packs may be reviewed and added to the project.
+
 - ChatGPT and I would like to encourage any and all users of this tool to share you additions and changes to what we have provided as an example top get you started so that we may all benefit from the experiences and collective wisdom and experience of all of you.  This framework could just as easily serve as a price list a catalog or a repository of whatever it is you would like to use it for and is released free to you liensed under MIT License Rules.  Enjoy everybody and thank you.  Peace!! WJF&ChatGPT
 
 - <img width="2172" height="724" alt="bcbc-linux-cheatsheet-technician-tools-killer-top" src="https://github.com/user-attachments/assets/2541db07-6325-449b-bbb4-ea19fc4f9649" />
